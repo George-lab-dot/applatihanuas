@@ -36,6 +36,30 @@
     <div class="row g-5">
       <div class="col-md-6">
         <h2 class="text-body-emphasis">Tampil Input Data</h2>
+        <table class ="table table-bordered">
+        <tr>
+          <th>Username</th>
+          <th>Artikel</th>
+          <th>Created_at</th>
+          <th>Updated_at</th>
+        <tr>
+
+        @foreach($post_list as $post)
+
+          <td>{{ $post->user->username }}</td>
+          <td>{{ $post->artikel }}</td> 
+          <td>{{ $post->created_at}}</td>
+          <td>{{ $post->updated_at }}</td>
+          <td>
+            <a href = "{{ site_url('welcome/hapus/' . $post->id) }}" class="btn btn-danger">Delete</a>
+            <a href = "{{ site_url('welcome/ubah/' . $post->id) }}" class="btn btn-danger">Edit</a>
+        <tr>
+        @endforeach  
+        </tr>
+        </tr>
+           <td></td>
+        <t/tr>
+        </table>
         <a href="{{ site_url('Welcome/index') }}" class="btn btn-success">Tambah</a>
       </div>
     </div>
@@ -46,3 +70,4 @@
 </div>
 </body>
 </html>
+
